@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>JS Module</title>
+</head>
+<body>
+    <h1>Book Store</h1>
+
+    <div class="container">
+        <div class="form-container">
+            <form id="my-form" method="post">
+                <label for="title">Book Title</label>
+                <input id="title" name="title" type="text" required>
+
+                <label class="author">Author Name</label>
+                <input id="author" name="author" type="text" required>
+
+                <label for="ISBN">ISBN</label>
+                <input id="ISBN" name="ISBN" type="number" required>
+
+                <button type="submit">Add</button>                
+            </form>
+
+            <button class="update" disabled>Update</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Author Name</th>
+                        <th>ISBN</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>
