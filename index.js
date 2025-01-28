@@ -67,6 +67,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // Taking the row index where edit was clicked
             ind, count = 0;
             rowToEdit = button.closest("tr");
+
+            document.querySelector("button[type=submit]").setAttribute("disabled", "");
             updateButton.removeAttribute("disabled");
             document.querySelectorAll("tr").forEach((row) => {
                 if(row === rowToEdit) {
@@ -93,9 +95,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         
         // If trying to update with empty form
         if(updatedTitle == '' || updatedAuthor == '' || updatedIsbn == '') {
+            document.querySelector("#my-form").reportValidity();
             return;
         }
-        
+
         // Inserting updated values from the form back in row (inside td)
         rowToEdit.children[0].innerHTML = updatedTitle;
         rowToEdit.children[1].innerHTML = updatedAuthor;
@@ -106,6 +109,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         jsonObj[ind-1].author = updatedAuthor;
         jsonObj[ind-1].isbn = updatedIsbn;
         localStorage.setItem("myBooks", JSON.stringify(jsonObj));
+
+        // Enabling add button after updating
+        document.querySelector("button[type=submit]").removeAttribute("disabled");
 
         // Disable update button and reset form after updating
         updateButton.setAttribute("disabled", "");
