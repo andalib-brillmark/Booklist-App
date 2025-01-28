@@ -1,14 +1,7 @@
-import Book from "./book.js";
-
 export default class Store {
     constructor() {
         if(!localStorage.getItem("myBooks")) {
             localStorage.setItem("myBooks", "[]");
-        }
-
-        let clearLoc = false;
-        if(clearLoc) {
-            localStorage.removeItem("myBooks");
         }
     }
 
@@ -21,10 +14,6 @@ export default class Store {
                 Store.createRow(book.title, book.author, book.isbn);
             });
         }
-
-        Book.addBook();
-        Book.deleteBook();
-        Book.editBook();
     }
 
     static createRow(title, author, isbn) {
